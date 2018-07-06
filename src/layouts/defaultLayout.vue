@@ -1,15 +1,21 @@
 <template>
   <div class="defalut-layout">
     <h1>vue-template</h1>
+    <nav-menu />
     <router-view />
   </div>
 </template>
 
 <script>
+import navMenu from '@/components/navMenu'
 export default {
   name: 'defalut-layout',
   data () {
     return {}
+  },
+
+  components: {
+    navMenu
   }
 }
 </script>
