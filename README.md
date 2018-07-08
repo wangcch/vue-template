@@ -30,6 +30,15 @@ const data = {
 }
 ```
 
+|name|API|
+|--|--|
+|GET|getUrlData()|
+|DELETE|deleteUrlData()|
+|POST|postUrlData()|
+|PUT|putUrlData()|
+|Download|downloadUrl()|
+
+
 ### GET
 
 ```js
@@ -86,6 +95,16 @@ api.postUrlData('user/login', data, (res, isErr) => {
 api.putUrlData('user/info', data, (res, isErr) => {
 	console.log(res, isErr)
 }, true)
+```
+
+### Download
+
+```js
+/**
+ * GET Download
+ * @param {String} url download url
+ */
+api.downloadUrl(url)
 ```
 
 ## Licence
