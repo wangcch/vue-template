@@ -24,7 +24,7 @@ const interceptors = () => {
  * @param {Object} self this
  */
 api.getUrlData = (getfix, data, callback, self) => {
-  const url = urlPrefix + getfix + (Object.keys(data).length > 0 ? '' : `?${qs.stringify(data)}`)
+  const url = urlPrefix + getfix + (Object.keys(data).length > 0 ? `?${qs.stringify(data)}` : '')
   interceptors()
   axios.get(url)
     .then(res => {
@@ -45,7 +45,7 @@ api.getUrlData = (getfix, data, callback, self) => {
  * @param {Object} self this
  */
 api.deleteUrlData = (getfix, data, callback, self) => {
-  const url = urlPrefix + getfix + (Object.keys(data).length > 0 ? '' : `?${qs.stringify(data)}`)
+  const url = urlPrefix + getfix + (Object.keys(data).length > 0 ? `?${qs.stringify(data)}` : '')
   interceptors()
   axios.delete(url)
     .then(res => {
