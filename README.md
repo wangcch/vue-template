@@ -4,7 +4,7 @@
 
 ## Setup
 
-``` bash
+```bash
 # install dependencies
 npm install
 
@@ -20,24 +20,25 @@ npm run build --report
 
 ## API
 
+| name     | API             |
+| -------- | --------------- |
+| GET      | getUrlData()    |
+| DELETE   | deleteUrlData() |
+| POST     | postUrlData()   |
+| PUT      | putUrlData()    |
+| Download | downloadUrl()   |
+
 ```js
-import api from '@/util/api.js'
+import api from "@/util/api.js";
 ```
+
 Data DMEO:
+
 ```
 const data = {
 	name: 'demo'
 }
 ```
-
-|name|API|
-|--|--|
-|GET|getUrlData()|
-|DELETE|deleteUrlData()|
-|POST|postUrlData()|
-|PUT|putUrlData()|
-|Download|downloadUrl()|
-
 
 ### GET
 
@@ -48,9 +49,9 @@ const data = {
  * @param {Object} data parameters
  * @param function res:Object response; isErr:Boolean undefined/true
  */
-api.getUrlData('user/info', data, (res, isErr) => {
-	console.log(res, isErr)
-})
+api.getUrlData("user/info", data, (res, isErr) => {
+  console.log(res, isErr);
+});
 ```
 
 ### DELETE
@@ -62,9 +63,9 @@ api.getUrlData('user/info', data, (res, isErr) => {
  * @param {Object} data parameters
  * @param function res:Object response; isErr:Boolean undefined/true
  */
-api.deleteUrlData('user/del', data, (res, isErr) => {
-	console.log(res, isErr)
-})
+api.deleteUrlData("user/del", data, (res, isErr) => {
+  console.log(res, isErr);
+});
 ```
 
 ### POST
@@ -77,9 +78,9 @@ api.deleteUrlData('user/del', data, (res, isErr) => {
  * @param function res:Object response; isErr:Boolean undefined/true
  * @param {Boolean} isJson form_data/json
  */
-api.postUrlData('user/login', data, (res, isErr) => {
-	console.log(res, isErr)
-}, true)
+api.postUrlData("user/login", data, (res, isErr) => {
+	console.log(res, isErr);
+}, true);
 ```
 
 ### PUT
@@ -92,9 +93,9 @@ api.postUrlData('user/login', data, (res, isErr) => {
  * @param function res:Object response; isErr:Boolean undefined/true
  * @param {Boolean} isJson form_data/json
  */
-api.putUrlData('user/info', data, (res, isErr) => {
-	console.log(res, isErr)
-}, true)
+api.putUrlData("user/info", data, (res, isErr) => {
+  console.log(res, isErr);
+}, true);
 ```
 
 ### Download
@@ -104,7 +105,7 @@ api.putUrlData('user/info', data, (res, isErr) => {
  * GET Download
  * @param {String} url download url
  */
-api.downloadUrl(url)
+api.downloadUrl(url);
 ```
 
 ## Licence
