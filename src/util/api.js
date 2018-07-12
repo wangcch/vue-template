@@ -1,5 +1,5 @@
 import axios from 'axios'
-const qs = require('qs')
+import { stringify } from 'qs'
 const urlPrefix = '/api/'
 
 const interceptors = () => {
@@ -24,7 +24,7 @@ class API {
    * @param {Object} self this
    */
   getUrlData = (getfix, data, callback, self) => {
-    const url = `${urlPrefix}${getfix}${(Object.keys(data).length > 0 ? `?${qs.stringify(data)}` : '')}`
+    const url = `${urlPrefix}${getfix}${(Object.keys(data).length > 0 ? `?${stringify(data)}` : '')}`
     interceptors()
     axios.get(url)
       .then(res => {
@@ -45,7 +45,7 @@ class API {
    * @param {Object} self this
    */
   deleteUrlData = (getfix, data, callback, self) => {
-    const url = `${urlPrefix}${getfix}${(Object.keys(data).length > 0 ? `?${qs.stringify(data)}` : '')}`
+    const url = `${urlPrefix}${getfix}${(Object.keys(data).length > 0 ? `?${stringify(data)}` : '')}`
     interceptors()
     axios.delete(url)
       .then(res => {
@@ -67,7 +67,7 @@ class API {
    */
   postUrlData = (postfix, data, callback, isJson, self) => {
     interceptors()
-    axios.post(`${urlPrefix}${postfix}`, isJson ? data : qs.stringify(data))
+    axios.post(`${urlPrefix}${postfix}`, isJson ? data : stringify(data))
       .then(res => {
         callback(res)
       })
@@ -88,7 +88,7 @@ class API {
    */
   putUrlData = (postfix, data, callback, isJson, self) => {
     interceptors()
-    axios.put(`${urlPrefix}${postfix}`, isJson ? data : qs.stringify(data))
+    axios.put(`${urlPrefix}${postfix}`, isJson ? data : stringify(data))
       .then(res => {
         callback(res)
       })
