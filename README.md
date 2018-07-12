@@ -20,6 +20,8 @@ npm run build --report
 
 ## API
 
+> /src/util/api.js
+
 | name     | API             |
 | -------- | --------------- |
 | GET      | getUrlData()    |
@@ -40,15 +42,35 @@ const data = {
 }
 ```
 
+### Proxy
+
+> /build/webpack.dev.conf.js -> devServer.proxy
+
+```js
+module.exports = {
+  //...
+  devServer: {
+    proxy: {
+      '/api': 'http://localhost:3000'
+    }
+  }
+};
+```
+More: [Webpack dev-server #devserver-proxy ](https://webpack.js.org/configuration/dev-server/#devserver-proxy)
+
 ### GET
 
 ```js
 /**
  * GET api
- * @param {String} getfix url head
+ * @param {String} suffix url address suffix
  * @param {Object} data parameters
  * @param function res:Object response; isErr:Boolean undefined/true
  */
+api.getUrlData(suffix, data, callback);
+```
+
+```js
 api.getUrlData("user/info", data, (res, isErr) => {
   console.log(res, isErr);
 });
@@ -59,10 +81,14 @@ api.getUrlData("user/info", data, (res, isErr) => {
 ```js
 /**
  * GET api
- * @param {String} getfix url head
+ * @param {String} suffix url address suffix
  * @param {Object} data parameters
  * @param function res:Object response; isErr:Boolean undefined/true
  */
+api.deleteUrlData(suffix, data, callback);
+```
+
+```js
 api.deleteUrlData("user/del", data, (res, isErr) => {
   console.log(res, isErr);
 });
@@ -73,13 +99,17 @@ api.deleteUrlData("user/del", data, (res, isErr) => {
 ```js
 /**
  * GET api
- * @param {String} getfix url head
+ * @param {String} suffix url address suffix
  * @param {Object} data parameters
  * @param function res:Object response; isErr:Boolean undefined/true
  * @param {Boolean} isJson form_data/json
  */
+api.postUrlData(suffix, data, callback, isJson);
+```
+
+```js
 api.postUrlData("user/login", data, (res, isErr) => {
-	console.log(res, isErr);
+  console.log(res, isErr);
 }, true);
 ```
 
@@ -88,11 +118,15 @@ api.postUrlData("user/login", data, (res, isErr) => {
 ```js
 /**
  * GET api
- * @param {String} getfix url head
+ * @param {String} suffix url address suffix
  * @param {Object} data parameters
  * @param function res:Object response; isErr:Boolean undefined/true
  * @param {Boolean} isJson form_data/json
  */
+api.putUrlData(suffix, data, callback, isJson);
+```
+
+```js
 api.putUrlData("user/info", data, (res, isErr) => {
   console.log(res, isErr);
 }, true);
