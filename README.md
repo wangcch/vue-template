@@ -18,6 +18,21 @@ npm run build
 npm run build --report
 ```
 
+## Directory
+
+```
+├─src
+| ├─assets            Resource folder
+| ├─components        Component folder
+| ├─layouts           Layout folder
+| ├─pages             Page folder
+| ├─router            Router configuration folder
+| ├─style             Main/Reset style
+| ├─util              Other packaging tools
+| ├─App.vue
+| └─main.js
+```
+
 ## API
 
 > /src/util/api.js
