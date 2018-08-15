@@ -5,6 +5,13 @@
 ## Setup
 
 ```bash
+git clone --depth=1 https://github.com/wangcch/vue-template.git your-project-name
+cd your-project-name
+npm install
+npm run dev
+```
+
+```bash
 # install dependencies
 npm install
 
